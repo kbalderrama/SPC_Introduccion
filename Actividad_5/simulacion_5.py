@@ -76,4 +76,11 @@ for i in range(num_stations):
 plt.tight_layout()
 plt.show()
 
-
+#Crear boxplot separados por estación de trabajo
+plt.figure(figsize=(12, 8))
+plt.boxplot(times_at_each_station, labels=[f'Estación {i + 1}' for i in range(num_stations)])
+plt.xlabel('Estaciones de Trabajo')
+plt.ylabel('Tiempo en el Sistema')
+plt.title('Boxplot de Tiempos en Estaciones de Trabajo')
+plt.tight_layout()
+plt.show()
