@@ -33,11 +33,11 @@ def simulate_assembly_line(total_units, num_stations, mean_processing_times, arr
     flag=True
     return times_in_system
 
-#simulación con 2000 repeticiones
+#simulación con 1000 repeticiones
 avg_time_in_system = []
 max_time_in_system = []
 min_time_in_system = []
-for _ in range(1):
+for _ in range(1000):
     simulation_results=simulate_assembly_line(total_units, num_stations, processing_times, arrival_rate)
     avg_time_in_system.append(np.mean(simulation_results))
     max_time_in_system.append(np.max(simulation_results)) 
