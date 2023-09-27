@@ -1,6 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+def plot_desviacion(simulation_results, avg_time_in_system, std_deviation_time_in_system, percentile_95_time_in_system):
+    plt.hist(simulation_results, bins=20, edgecolor='blue')
+    plt.xlabel('Tiempo en el sistema')
+    plt.ylabel('Frecuencia')
+    plt.title('Distribución de Tiempos en el Sistema')
+    plt.axvline(x=avg_time_in_system + std_deviation_time_in_system, color='red', linestyle='--', label='Desviación Estándar')
+    plt.axvline(x=avg_time_in_system - std_deviation_time_in_system, color='red', linestyle='--')
+    plt.axvline(x=percentile_95_time_in_system, color='green', linestyle='--', label='Percentil 95')
+    plt.legend()  # Agregar leyenda
+    plt.show()
+
 # Parámetros del modelo
 total_units = 256  # Cantidad total de unidades a producir
 num_stations = 8   # Número de estaciones de trabajo
@@ -46,11 +58,15 @@ for _ in range(1000):
 promedio=np.mean(avg_time_in_system)
 maximo=np.mean(max_time_in_system)
 minimo=np.mean(min_time_in_system)
+std_deviation_time_in_system = np.std(simulation_results)
+percentile_95_time_in_system = np.percentile(simulation_results, 95)
 
 # Resultados
 print(f"Tiempo promedio en el sistema: {promedio:.2f}")
 print(f"Tiempo máximo en el sistema: {maximo:.2f}")
 print(f"Tiempo mínimo en el sistema: {minimo:.2f}")
+print(f"Desviación estándar de los tiempos en el sistema: {std_deviation_time_in_system:.2f}")
+print(f"Percentil 95 de los tiempos en el sistema: {percentile_95_time_in_system:.2f}")
 
 # Visualización de resultados
 plt.hist(simulation_results, bins=20, edgecolor='blue')
@@ -58,6 +74,8 @@ plt.xlabel('Tiempo en el sistema')
 plt.ylabel('Frecuencia')
 plt.title('Distribución de Tiempos en el Sistema')
 plt.show()
+plot_desviacion(simulation_results, avg_time_in_system, std_deviation_time_in_system, percentile_95_time_in_system)
+
 
 # Crear histogramas separados por estación de trabajo
 plt.figure(figsize=(12, 8))
