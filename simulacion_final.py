@@ -74,7 +74,7 @@ plt.xlabel('Tiempo en el sistema')
 plt.ylabel('Frecuencia')
 plt.title('Distribución de Tiempos en el Sistema')
 plt.show()
-plot_desviacion(simulation_results, avg_time_in_system, std_deviation_time_in_system, percentile_95_time_in_system)
+plot_desviacion(simulation_results, promedio, std_deviation_time_in_system, percentile_95_time_in_system)
 
 
 # Crear histogramas separados por estación de trabajo
