@@ -15,8 +15,8 @@ def plot_desviacion(simulation_results, avg_time_in_system, std_deviation_time_i
 
 # Parámetros del modelo
 total_units = 256  # Cantidad total de unidades a producir
-num_stations = 8   # Número de estaciones de trabajo
-processing_times = [10, 15, 20, 15, 10, 15, 12, 18]  # Tiempos de procesamiento en cada estación
+num_stations = 10  # Número de estaciones de trabajo
+processing_times = [8, 12, 10, 12, 8, 10, 9, 13, 8, 10 ]  # Tiempos de procesamiento en cada estación
 arrival_rate = 8# Tasa de llegada de unidades por hora
 
 times_at_each_station = [[] for _ in range(num_stations)]
